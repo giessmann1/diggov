@@ -8,7 +8,9 @@ Repository for Seminar in Digital Government
 
   docker-compose -up
 
-  docker exec -it my-mysql mysql -p  change "my-mysql" to the name of your container (can be found with ´docker ps´
+- database can be accessed via http://localhost:8080
+
+- data of survey will be added
 
   
 
