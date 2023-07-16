@@ -10,7 +10,7 @@ Repository for Seminar in Digital Government
 
 - database can be accessed via http://localhost:8080
 
-- data of survey will be added
+- initial data included
 
   
 
