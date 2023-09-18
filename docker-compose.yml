@@ -12,13 +12,22 @@ services:
           - ./init:/docker-entrypoint-initdb.d
           - ./dbdata:/var/lib/mysql
       container_name: mysqldb
-      image: mysql
+      image: mysql:latest
+      ports:
+        - "3306:3306"
+      restart: always
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    restart: always
+    image: phpmyadmin:latest
     environment:
+      PMA_PORT: 3306
       PMA_HOST: db
       PMA_USER: root
       PMA_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
     ports:
       - "8080:80"
+    container_name: phpmyadmin
+    links:
+      - db:db
+    depends_on:
+      - db
