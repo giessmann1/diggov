@@ -3,11 +3,8 @@ services:
   db:
       environment:
          MYSQL_ROOT_PASSWORD: root
-      command:
-         - --table_definition_cache=100
-         - --performance_schema=0
-         - --default-authentication-plugin=mysql_native_password
-         - --innodb_use_native_aio=0
+         LANG: C.UTF-8
+      command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
       volumes:
           - ./init:/docker-entrypoint-initdb.d
           - ./dbdata:/var/lib/mysql
